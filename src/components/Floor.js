@@ -2,8 +2,6 @@ import React from "react";
 
 import * as THREE from "three";
 
-import * as Math from "mathjs";
-
 const FLOOR_SIZE = 100;
 
 const Floor = ({ color = "white", scale = 1, ...props }) => {
