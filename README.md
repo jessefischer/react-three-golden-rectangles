@@ -1,6 +1,6 @@
 # Three Golden Rectangles
 
-This project is to demonstrate the astounding geometry of three intersecting golden rectangles and an inscribed regular icosahedron.
+This project is to demonstrate the astounding geometry of three intersecting, orthogonal, golden rectangles and an inscribed regular icosahedron.
 
 ## Golden Rectangles
 
@@ -9,6 +9,12 @@ Golden rectangles are rectangles such that the ratio of length to width is 1 to 
 ## Regular Icosahedron
 
 A regular icosahedron is one of the five Platonic solids or polyhedra, consisting of 20 regular equilateral triangles.
+
+## How to Use
+
+* Use the controls at the bottom of the screen to adjust the opacities of the Icosahedron and the three Golden Rectangles, and the speed they spin around the origin.
+* Drag to change the position of the camera
+* Scroll the mouse wheel or pinch to zoom in/out.
 
 ## Credits
 
