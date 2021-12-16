@@ -41,14 +41,14 @@ const App = () => {
   const [spinSpeed, setSpinSpeed] = useState(START_SPIN_SPEED);
 
   const handleUpdateControls = (e) => {
-    if ( e.target.name === "icosahedronOpacity" ) {
-      setIcoOpacity( e.target.value );
+    if (e.target.name === "icosahedronOpacity") {
+      setIcoOpacity(e.target.value);
     }
-    if ( e.target.name === "rectanglesOpacity" ) {
-      setRectOpacity( e.target.value );
+    if (e.target.name === "rectanglesOpacity") {
+      setRectOpacity(e.target.value);
     }
-    if ( e.target.name === 'spinSpeed' ) {
-      setSpinSpeed( e.target.value );
+    if (e.target.name === "spinSpeed") {
+      setSpinSpeed(e.target.value);
     }
   };
 
@@ -62,8 +62,16 @@ const App = () => {
         <CameraControls target={[0, 1, 0]} />
         <directionalLight position={[-10, 20, 40]} />
         <directionalLight position={[2, -3, -4]} />
-        <ThreeGoldenRectangles position={[0, 1, 0]} opacity={rectOpacity} spinSpeed={spinSpeed}/>
-        <Icosahedron position={[0, 1, 0]} opacity={icoOpacity} spinSpeed={spinSpeed}/>
+        <ThreeGoldenRectangles
+          position={[0, 1, 0]}
+          opacity={rectOpacity}
+          spinSpeed={spinSpeed}
+        />
+        <Icosahedron
+          position={[0, 1, 0]}
+          opacity={icoOpacity}
+          spinSpeed={spinSpeed}
+        />
         <InfiniteGridHelper color={new THREE.Color(0x00ccff)} />
         <Floor
           color={new THREE.Color(0x444444)}
@@ -77,6 +85,11 @@ const App = () => {
         spinSpeed={spinSpeed}
         handleUpdateControls={handleUpdateControls}
       />
+      <div className="source">
+        <a href="https://github.com/jessefischer/react-three-golden-rectangles">
+          Source
+        </a>
+      </div>
     </>
   );
 };

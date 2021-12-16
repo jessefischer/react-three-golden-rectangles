@@ -10,6 +10,7 @@ const Icosahedron = ({
   opacity = 1,
   position = [0, 0, 0],
   spinSpeed = 0.5,
+  ...props
 }) => {
   const icoRef = useRef();
 
@@ -19,9 +20,9 @@ const Icosahedron = ({
 
   const radius = (scale * Math.sqrt(1 + Math.phi * Math.phi)) / 2;
   return (
-    <lineSegments position={position} ref={icoRef}>
+    <lineSegments position={position} ref={icoRef} {...props}>
       <edgesGeometry args={[new THREE.IcosahedronGeometry(radius, 0)]} />
-      <lineBasicMaterial color={color} transparent={true} opacity={opacity}/>
+      <lineBasicMaterial color={color} transparent={true} opacity={opacity} />
     </lineSegments>
   );
 };

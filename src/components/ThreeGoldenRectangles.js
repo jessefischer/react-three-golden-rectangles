@@ -19,7 +19,7 @@ const ThreeGoldenRectangles = ({
   });
 
   return (
-    <group ref={tgrRef}>
+    <group ref={tgrRef} {...props}>
       <GoldenRectangle
         opacity={opacity}
         color="blue"
