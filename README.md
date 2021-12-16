@@ -10,3 +10,6 @@ Golden rectangles are rectangles such that the ratio of length to width is 1 to 
 
 A regular icosahedron is one of the five Platonic solids or polyhedra, consisting of 20 regular equilateral triangles.
 
+## Tech stack
+
+This project was intended as an example to teach myself `Three.js` and `react-three-fiber`. I also used `math.js` for some constants and functions.
