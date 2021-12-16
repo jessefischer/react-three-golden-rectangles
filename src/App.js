@@ -14,20 +14,17 @@ import * as Math from "mathjs";
 
 extend({ OrbitControls });
 
-const CameraControls = () => {
-  // Get a reference to the Three.js Camera, and the canvas html element.
-  // We need these to setup the OrbitControls component.
-  // https://threejs.org/docs/#examples/en/controls/OrbitControls
+// From https://codeworkshop.dev/blog/2020-04-03-adding-orbit-controls-to-react-three-fiber/
+const CameraControls = ({target = [0,0,0]}) => {
   const {
     camera,
     gl: { domElement },
   } = useThree();
-  // Ref to the controls, so that we can update them on every frame using useFrame
   const controls = useRef();
   useFrame(() => {
     controls.current.update();
   });
-  return <orbitControls ref={controls} args={[camera, domElement]} />;
+  return <orbitControls ref={controls} args={[camera, domElement]} target={target}/>;
 };
 
 const App = () => {
@@ -35,19 +32,19 @@ const App = () => {
     <>
       <Canvas
         camera={{
-          position: [0, 0.5, 2],
+          position: [0, 1.5, 2.5],
         }}
       >
-        <CameraControls />
+        <CameraControls target={[0,1,0]}/>
         <directionalLight position={[-10, 20, 40]} />
         <directionalLight position={[2, -3, -4]} />
         <ThreeGoldenRectangles position={[0,1,0]}/>
-        <InfiniteGridHelper color={new THREE.Color("white")}/>
-        {/* <Floor
-          color="white"
-          position={[0, 0, 0]}
+        <InfiniteGridHelper color={new THREE.Color(0x00ccff)}/>
+        <Floor
+          color={new THREE.Color(0x444444)}
+          position={[0, -0.01, 0]}
           rotation={[Math.pi / 2, 0, 0]}
-        /> */}
+        />
       </Canvas>
     </>
   );
