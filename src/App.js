@@ -87,7 +87,7 @@ const App = () => {
       />
       <div className="source">
         <a href="https://github.com/jessefischer/react-three-golden-rectangles">
-          Source
+          Source / Credits
         </a>
       </div>
     </>
