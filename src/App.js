@@ -8,6 +8,7 @@ import InfiniteGridHelper from "./lib/InfiniteGridHelper";
 import "./App.css";
 
 import ThreeGoldenRectangles from "./components/ThreeGoldenRectangles";
+import Icosahedron from "./components/Icosahedron";
 import Floor from "./components/Floor";
 
 import * as Math from "mathjs";
@@ -40,6 +41,7 @@ const App = () => {
         <directionalLight position={[2, -3, -4]} />
         <ThreeGoldenRectangles position={[0,1,0]}/>
         <InfiniteGridHelper color={new THREE.Color(0x00ccff)}/>
+        <Icosahedron position={[0,1,0]} />
         <Floor
           color={new THREE.Color(0x444444)}
           position={[0, -0.01, 0]}
