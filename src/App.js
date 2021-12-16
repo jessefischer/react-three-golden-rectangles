@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
 import { Canvas, useFrame, useThree, extend } from "@react-three/fiber";
+import * as THREE from "three";
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import InfiniteGridHelper from "./lib/InfiniteGridHelper";
 
 import "./App.css";
 
 import ThreeGoldenRectangles from "./components/ThreeGoldenRectangles";
-
 import Floor from "./components/Floor";
 
 import * as Math from "mathjs";
@@ -40,12 +41,13 @@ const App = () => {
         <CameraControls />
         <directionalLight position={[-10, 20, 40]} />
         <directionalLight position={[2, -3, -4]} />
-        <ThreeGoldenRectangles />
-        <Floor
+        <ThreeGoldenRectangles position={[0,1,0]}/>
+        <InfiniteGridHelper color={new THREE.Color("white")}/>
+        {/* <Floor
           color="white"
-          position={[0, -1, 0]}
+          position={[0, 0, 0]}
           rotation={[Math.pi / 2, 0, 0]}
-        />
+        /> */}
       </Canvas>
     </>
   );
