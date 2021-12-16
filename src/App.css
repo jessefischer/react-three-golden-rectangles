@@ -33,7 +33,7 @@ canvas {
 
 @media (max-width: 768px) {
   .controls {
-    width: 90%;
+    width: 75%;
   }
 }
 .controls:hover {
