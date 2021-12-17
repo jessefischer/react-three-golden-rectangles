@@ -12,8 +12,8 @@ A regular icosahedron is one of the five Platonic solids or polyhedra, consistin
 
 ## How to Use
 
-* Use the controls at the bottom of the screen to adjust the opacities of the Icosahedron and the three Golden Rectangles, and the speed they spin around the origin.
-* Drag to change the position of the camera
+* Use the controls at the bottom of the screen to adjust the opacities of the Icosahedron and the three Golden Rectangles, and the speed at which they spin around the origin.
+* Drag or swipe to change the position of the camera
 * Scroll the mouse wheel or pinch to zoom in/out.
 
 ## Credits
