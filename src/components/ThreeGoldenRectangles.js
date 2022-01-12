@@ -3,8 +3,6 @@ import { useFrame } from "@react-three/fiber";
 
 import GoldenRectangle from "./GoldenRectangle";
 
-import * as Math from "mathjs";
-
 const ThreeGoldenRectangles = ({
   opacity = 1,
   scale = 1,
@@ -30,13 +28,13 @@ const ThreeGoldenRectangles = ({
         opacity={opacity}
         color="red"
         position={position}
-        rotation={[0, Math.pi / 2, Math.pi / 2]}
+        rotation={[0, Math.PI / 2, Math.PI / 2]}
       />
       <GoldenRectangle
         opacity={opacity}
         color="yellow"
         position={position}
-        rotation={[Math.pi / 2, 0, Math.pi / 2]}
+        rotation={[Math.PI / 2, 0, Math.PI / 2]}
       />
     </group>
   );

@@ -12,8 +12,6 @@ import Icosahedron from "./components/Icosahedron";
 import Floor from "./components/Floor";
 import Controls from "./components/Controls";
 
-import * as Math from "mathjs";
-
 extend({ OrbitControls });
 
 const ICO_START_OPACITY = 0;
@@ -76,7 +74,7 @@ const App = () => {
         <Floor
           color={new THREE.Color(0x444444)}
           position={[0, -0.01, 0]}
-          rotation={[Math.pi / 2, 0, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
         />
       </Canvas>
       <Controls
@@ -86,7 +84,7 @@ const App = () => {
         handleUpdateControls={handleUpdateControls}
       />
       <div className="source">
-        <a href="https://github.com/jessefischer/react-three-golden-rectangles">
+        <a href="https://github.com/jessefischer/three-golden-rectangles">
           Source / Credits
         </a>
       </div>
