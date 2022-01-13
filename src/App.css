@@ -23,12 +23,33 @@ canvas {
   bottom: 10px;
   left: 50vw;
   transform: translateX( -50% );
-  padding: 5px 10px 10px;
+  padding: 15px 20px;
+  background-color: rgb( 255, 255, 255, 0.25);
   backdrop-filter: blur( 5px ) brightness( 75% );
-  border-radius: 10px;
+  border-radius: 20px;
   color: white;
   opacity: 0.5;
   transition: opacity 0.5s ease-out;
+  cursor: pointer;
+  text-align: center;
+}
+
+.controlsInner {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-gap: 10px 15px;
+}
+
+.controlsInner label {
+  text-align: left;
+}
+
+.stopStart {
+  display: inline-block;
+  background-color: #008000;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin: 20px auto 0;
 }
 
 @media (max-width: 768px) {
@@ -41,12 +62,8 @@ canvas {
   transition: opacity 0.25s;
 }
 
-.controls label {
-    padding-left: 10px;
-}
-
-.controls input {
-  transform: translateY( 5px );
+.controls input, .controls select {
+  width: 100%;
 }
 
 .source {

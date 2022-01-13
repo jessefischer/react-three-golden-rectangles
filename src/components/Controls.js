@@ -1,7 +1,7 @@
 const Controls = ({ icoOpacity, rectOpacity, autorotate, handleUpdateControls }) => {
   return (
     <div className="controls">
-      <div>
+      <div className="controlsInner">
         <input
           type="range"
           min={0}
@@ -12,8 +12,6 @@ const Controls = ({ icoOpacity, rectOpacity, autorotate, handleUpdateControls })
           onChange={handleUpdateControls}
         />
         <label htmlFor="icosahedronOpacity">Icosahedron</label>
-      </div>
-      <div>
         <input
           type="range"
           min={0}
@@ -24,8 +22,6 @@ const Controls = ({ icoOpacity, rectOpacity, autorotate, handleUpdateControls })
           onChange={handleUpdateControls}
         />
         <label htmlFor="rectanglesOpacity">Golden Rectangles</label>
-      </div>
-      <div>
         <input
           type="range"
           min={-1}
