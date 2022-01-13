@@ -1,6 +1,4 @@
-import React from "react";
-
-const Controls = ({ icoValue, rectValue, spinSpeed, handleUpdateControls }) => {
+const Controls = ({ icoOpacity, rectOpacity, autorotate, handleUpdateControls }) => {
   return (
     <div className="controls">
       <div>
@@ -10,7 +8,7 @@ const Controls = ({ icoValue, rectValue, spinSpeed, handleUpdateControls }) => {
           max={1}
           step={0.01}
           name="icosahedronOpacity"
-          value={icoValue}
+          value={icoOpacity}
           onChange={handleUpdateControls}
         />
         <label htmlFor="icosahedronOpacity">Icosahedron</label>
@@ -22,7 +20,7 @@ const Controls = ({ icoValue, rectValue, spinSpeed, handleUpdateControls }) => {
           max={1}
           step={0.01}
           name="rectanglesOpacity"
-          value={rectValue}
+          value={rectOpacity}
           onChange={handleUpdateControls}
         />
         <label htmlFor="rectanglesOpacity">Golden Rectangles</label>
@@ -30,14 +28,14 @@ const Controls = ({ icoValue, rectValue, spinSpeed, handleUpdateControls }) => {
       <div>
         <input
           type="range"
-          min={0}
+          min={-1}
           max={1}
-          step={0.01}
-          name="spinSpeed"
-          value={spinSpeed}
+          step={0.1}
+          name="autorotate"
+          value={autorotate}
           onChange={handleUpdateControls}
         />
-        <label htmlFor="spinSpeed">Spin Speed</label>
+        <label htmlFor="autorotate">Autorotate</label>
       </div>
     </div>
   );
