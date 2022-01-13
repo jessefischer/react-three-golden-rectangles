@@ -7,21 +7,21 @@ const Controls = ({ icoOpacity, rectOpacity, autorotate, handleUpdateControls })
           min={0}
           max={1}
           step={0.01}
-          name="icosahedronOpacity"
+          name="icoOpacity"
           value={icoOpacity}
           onChange={handleUpdateControls}
         />
-        <label htmlFor="icosahedronOpacity">Icosahedron</label>
+        <label htmlFor="icoOpacity">Icosahedron</label>
         <input
           type="range"
           min={0}
           max={1}
           step={0.01}
-          name="rectanglesOpacity"
+          name="rectOpacity"
           value={rectOpacity}
           onChange={handleUpdateControls}
         />
-        <label htmlFor="rectanglesOpacity">Golden Rectangles</label>
+        <label htmlFor="rectOpacity">Golden Rectangles</label>
         <input
           type="range"
           min={-1}

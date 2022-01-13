@@ -15,20 +15,10 @@ import { COLORS } from "./constants/colors";
 import { DEFAULTS } from "./constants/defaults";
 
 const App = () => {
-  const [icoOpacity, setIcoOpacity] = useState(DEFAULTS.icoOpacity);
-  const [rectOpacity, setRectOpacity] = useState(DEFAULTS.rectOpacity);
-  const [autorotate, setAutorotate] = useState(DEFAULTS.autorotate);
+  const [appState, setAppState] = useState( DEFAULTS );
 
   const handleUpdateControls = (e) => {
-    if (e.target.name === "icosahedronOpacity") {
-      setIcoOpacity(e.target.value);
-    }
-    if (e.target.name === "rectanglesOpacity") {
-      setRectOpacity(e.target.value);
-    }
-    if (e.target.name === "autorotate") {
-      setAutorotate(e.target.value);
-    }
+    setAppState( currentState => ({...currentState, [e.target.name]: e.target.value}) );
   };
 
   return (
@@ -43,20 +33,20 @@ const App = () => {
         <directionalLight position={[2, -3, -4]} />
         <ThreeGoldenRectangles
           position={[0, 1, 0]}
-          opacity={rectOpacity}
-          autorotate={autorotate}
+          opacity={appState.rectOpacity}
+          autorotate={appState.autorotate}
         />
         <Icosahedron
           position={[0, 1, 0]}
-          opacity={icoOpacity}
-          autorotate={autorotate}
+          opacity={appState.icoOpacity}
+          autorotate={appState.autorotate}
         />
         <InfiniteGridHelper color={new THREE.Color( COLORS.Cyan)} />
       </Canvas>
       <Controls
-        icoOpacity={icoOpacity}
-        rectOpacity={rectOpacity}
-        autorotate={autorotate}
+        icoOpacity={appState.icoOpacity}
+        rectOpacity={appState.rectOpacity}
+        autorotate={appState.autorotate}
         handleUpdateControls={handleUpdateControls}
       />
       <div className="source">
