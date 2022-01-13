@@ -7,13 +7,13 @@ const ThreeGoldenRectangles = ({
   opacity = 1,
   scale = 1,
   position = [0, 0, 0],
-  spinSpeed = 0.5,
+  autorotate,
   ...props
 }) => {
   const tgrRef = useRef();
 
   useFrame(() => {
-    tgrRef.current.rotation.y -= 0.01 * spinSpeed;
+    tgrRef.current.rotation.y -= 0.01 * autorotate;
   });
 
   return (
