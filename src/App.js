@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { useState } from "react";
+import { Canvas } from "@react-three/fiber";
 import * as THREE from "three";
 
 import { OrbitControls } from "@react-three/drei";
@@ -9,7 +9,6 @@ import "./App.css";
 
 import ThreeGoldenRectangles from "./components/ThreeGoldenRectangles";
 import Icosahedron from "./components/Icosahedron";
-import Floor from "./components/Floor";
 import Controls from "./components/Controls";
 
 import { COLORS } from "./constants/colors";
@@ -52,7 +51,7 @@ const App = () => {
           opacity={icoOpacity}
           autorotate={autorotate}
         />
-        <InfiniteGridHelper color={new THREE.Color(0x00ccff)} />
+        <InfiniteGridHelper color={new THREE.Color( COLORS.Cyan)} />
       </Canvas>
       <Controls
         icoOpacity={icoOpacity}
