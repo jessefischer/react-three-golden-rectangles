@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 
 import GoldenRectangle from "./GoldenRectangle";
@@ -16,6 +16,18 @@ const ThreeGoldenRectangles = ({
 }) => {
   const tgrRef = useRef();
 
+  const [hoveredState, setHoveredState] = useState(null);
+
+  const handleEnter = (rect) => {
+    setHoveredState( rect );
+    document.body.style.cursor = 'pointer';
+  }
+
+  const handleLeave = () => {
+    setHoveredState( null );
+    document.body.style.cursor = 'default';
+  }
+
   useFrame(() => {
     tgrRef.current.rotation.y -= 0.01 * autorotate;
   });
@@ -24,23 +36,32 @@ const ThreeGoldenRectangles = ({
     <group ref={tgrRef} {...props}>
       <GoldenRectangle
         opacity={opacity}
-        color={COLORS.Godle}
+        color={"red"}
         position={position}
         rotation={[0, 0, 0]}
+        hovered={hoveredState===0}
+        handleEnter={()=>handleEnter(0)}
+        handleLeave={handleLeave}
         handleClick={()=>handlePlay( SEQUENCES.Godle )}
       />
       <GoldenRectangle
         opacity={opacity}
-        color={COLORS.Escher}
+        color={"blue"}
         position={position}
         rotation={[0, Math.PI / 2, Math.PI / 2]}
+        hovered={hoveredState===1}
+        handleEnter={()=>handleEnter(1)}
+        handleLeave={handleLeave}
         handleClick={()=>handlePlay( SEQUENCES.Escher )}
       />
       <GoldenRectangle
         opacity={opacity}
-        color={COLORS.Bach}
+        color={"yellow"}
         position={position}
         rotation={[Math.PI / 2, 0, Math.PI / 2]}
+        hovered={hoveredState===2}
+        handleEnter={()=>handleEnter(2)}
+        handleLeave={handleLeave}
         handleClick={()=>handlePlay( SEQUENCES.Bach )}
       />
     </group>
