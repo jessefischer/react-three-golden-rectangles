@@ -18,12 +18,14 @@ const ThreeGoldenRectangles = ({
 
   const [hoveredState, setHoveredState] = useState(null);
 
-  const handleEnter = (rect) => {
+  const handleEnter = (e, rect) => {
+    e.stopPropagation();
     setHoveredState( rect );
     document.body.style.cursor = 'pointer';
   }
 
-  const handleLeave = () => {
+  const handleLeave = (e) => {
+    e.stopPropagation();
     setHoveredState( null );
     document.body.style.cursor = 'default';
   }
@@ -36,31 +38,31 @@ const ThreeGoldenRectangles = ({
     <group ref={tgrRef} {...props}>
       <GoldenRectangle
         opacity={opacity}
-        color={"red"}
+        color={COLORS.Red}
         position={position}
         rotation={[0, 0, 0]}
         hovered={hoveredState===0}
-        handleEnter={()=>handleEnter(0)}
+        handleEnter={(e)=>handleEnter(e,0)}
         handleLeave={handleLeave}
         handleClick={()=>handlePlay( SEQUENCES.Godle )}
       />
       <GoldenRectangle
         opacity={opacity}
-        color={"blue"}
+        color={COLORS.Blue}
         position={position}
         rotation={[0, Math.PI / 2, Math.PI / 2]}
         hovered={hoveredState===1}
-        handleEnter={()=>handleEnter(1)}
+        handleEnter={(e)=>handleEnter(e,1)}
         handleLeave={handleLeave}
         handleClick={()=>handlePlay( SEQUENCES.Escher )}
       />
       <GoldenRectangle
         opacity={opacity}
-        color={"yellow"}
+        color={COLORS.Yellow}
         position={position}
         rotation={[Math.PI / 2, 0, Math.PI / 2]}
         hovered={hoveredState===2}
-        handleEnter={()=>handleEnter(2)}
+        handleEnter={(e)=>handleEnter(e,2)}
         handleLeave={handleLeave}
         handleClick={()=>handlePlay( SEQUENCES.Bach )}
       />

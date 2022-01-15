@@ -1,8 +1,11 @@
 import { useMemo } from "react";
 
+import { useSpring, animated } from "@react-spring/three";
+
 import { phi as PHI } from "mathjs";
-import * as THREE from "three";
 import { PLANE_WIDTH } from "../constants/defaults";
+
+import { COLORS } from "../constants/colors";
 
 const GoldenRectangle = ({
   color = "white",
@@ -15,8 +18,22 @@ const GoldenRectangle = ({
   handleLeave,
   ...props
 }) => {
-  const lightenColor = useMemo( () =>
-    new THREE.Color(color).addScalar(0.1), [color] );
+  const lightenColor = useMemo(() => {
+    switch (color) {
+      case COLORS.Red:
+        return COLORS.BrightRed;
+      case COLORS.Blue:
+        return COLORS.BrightBlue;
+      case COLORS.Yellow:
+        return COLORS.BrightYellow;
+      default:
+        return color;
+    }
+  }, [color]);
+
+  const { animatedColor } = useSpring({
+    animatedColor: hovered ? lightenColor : color,
+  });
 
   return (
     <mesh
@@ -28,8 +45,8 @@ const GoldenRectangle = ({
       onPointerLeave={handleLeave}
     >
       <boxGeometry args={[1, PHI, PLANE_WIDTH]} />
-      <meshStandardMaterial
-        color={hovered ? lightenColor : color}
+      <animated.meshStandardMaterial
+        color={animatedColor}
         opacity={opacity}
         transparent={true}
       />
