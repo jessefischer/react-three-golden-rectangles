@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, forwardRef } from "react";
 import { useFrame } from "@react-three/fiber";
 
 import * as THREE from "three";
@@ -11,7 +11,7 @@ const Icosahedron = ({
   position = [0, 0, 0],
   autorotate,
   ...props
-}) => {
+})=> {
   const icoRef = useRef();
 
   useFrame(() => {

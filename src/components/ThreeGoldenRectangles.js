@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, forwardRef } from "react";
 import { useFrame } from "@react-three/fiber";
 
 import GoldenRectangle from "./GoldenRectangle";
@@ -6,14 +6,14 @@ import GoldenRectangle from "./GoldenRectangle";
 import { COLORS } from "../constants/colors";
 import { SEQUENCES } from "../constants/sequences";
 
-const ThreeGoldenRectangles = ({
+const ThreeGoldenRectangles = forwardRef(({
   opacity = 1,
   scale = 1,
   position = [0, 0, 0],
   autorotate,
   handlePlay,
   ...props
-}) => {
+}, refs) => {
   const tgrRef = useRef();
 
   const [hoveredState, setHoveredState] = useState(null);
@@ -38,6 +38,7 @@ const ThreeGoldenRectangles = ({
     <group ref={tgrRef} {...props}>
       <GoldenRectangle
         opacity={opacity}
+        ref={refs[0]}
         color={COLORS.Red}
         position={position}
         rotation={[0, 0, 0]}
@@ -47,6 +48,7 @@ const ThreeGoldenRectangles = ({
         handleClick={()=>handlePlay( SEQUENCES.Godle )}
       />
       <GoldenRectangle
+        ref={refs[1]}
         opacity={opacity}
         color={COLORS.Blue}
         position={position}
@@ -57,6 +59,7 @@ const ThreeGoldenRectangles = ({
         handleClick={()=>handlePlay( SEQUENCES.Escher )}
       />
       <GoldenRectangle
+        ref={refs[2]}
         opacity={opacity}
         color={COLORS.Yellow}
         position={position}
@@ -68,6 +71,6 @@ const ThreeGoldenRectangles = ({
       />
     </group>
   );
-};
+});
 
 export default ThreeGoldenRectangles;
