@@ -1,4 +1,13 @@
-const Controls = ({ icoOpacity, rectOpacity, autorotate, handleUpdateControls }) => {
+const Controls = ({
+  icoOpacity,
+  rectOpacity,
+  autorotate,
+  melody,
+  drone,
+  dronePlaying,
+  handleUpdateControls,
+  handleDroneStopStart,
+}) => {
   return (
     <div className="controls">
       <div className="controlsInner">
@@ -32,6 +41,29 @@ const Controls = ({ icoOpacity, rectOpacity, autorotate, handleUpdateControls })
           onChange={handleUpdateControls}
         />
         <label htmlFor="autorotate">Autorotate</label>
+        <input
+          type="range"
+          min={0}
+          max={1}
+          step={0.01}
+          name="melody"
+          value={melody}
+          onChange={handleUpdateControls}
+        />
+        <label htmlFor="melody">Melody</label>
+        <input
+          type="range"
+          min={0}
+          max={1}
+          step={0.01}
+          name="drone"
+          value={drone}
+          onChange={handleUpdateControls}
+        />
+        <label htmlFor="drone">Drone</label>
+      </div>
+      <div className="droneStopStart" onClick={handleDroneStopStart}>
+        {dronePlaying ? "stop drone" : "start drone"}
       </div>
     </div>
   );

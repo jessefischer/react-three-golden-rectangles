@@ -44,7 +44,7 @@ canvas {
   text-align: left;
 }
 
-.stopStart {
+.droneStopStart {
   display: inline-block;
   background-color: #008000;
   border-radius: 20px;

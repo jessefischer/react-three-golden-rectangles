@@ -10,6 +10,7 @@ const ThreeGoldenRectangles = forwardRef(({
   opacity = 1,
   scale = 1,
   position = [0, 0, 0],
+  playingRect = null,
   autorotate,
   handlePlay,
   ...props
@@ -39,35 +40,38 @@ const ThreeGoldenRectangles = forwardRef(({
       <GoldenRectangle
         opacity={opacity}
         ref={refs[0]}
-        color={COLORS.Red}
+        color={COLORS.Godel}
         position={position}
         rotation={[0, 0, 0]}
         hovered={hoveredState===0}
+        playing={playingRect===0}
         handleEnter={(e)=>handleEnter(e,0)}
         handleLeave={handleLeave}
-        handleClick={()=>handlePlay( SEQUENCES.Godle )}
+        handleClick={()=>handlePlay( 0, SEQUENCES.Godle )}
       />
       <GoldenRectangle
         ref={refs[1]}
         opacity={opacity}
-        color={COLORS.Blue}
+        color={COLORS.Escher}
         position={position}
         rotation={[0, Math.PI / 2, Math.PI / 2]}
         hovered={hoveredState===1}
+        playing={playingRect===1}
         handleEnter={(e)=>handleEnter(e,1)}
         handleLeave={handleLeave}
-        handleClick={()=>handlePlay( SEQUENCES.Escher )}
+        handleClick={()=>handlePlay( 1, SEQUENCES.Escher )}
       />
       <GoldenRectangle
         ref={refs[2]}
         opacity={opacity}
-        color={COLORS.Yellow}
+        color={COLORS.Bach}
         position={position}
         rotation={[Math.PI / 2, 0, Math.PI / 2]}
         hovered={hoveredState===2}
+        playing={playingRect===2}
         handleEnter={(e)=>handleEnter(e,2)}
         handleLeave={handleLeave}
-        handleClick={()=>handlePlay( SEQUENCES.Bach )}
+        handleClick={()=>handlePlay( 2, SEQUENCES.Bach )}
       />
     </group>
   );
