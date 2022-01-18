@@ -62,13 +62,13 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    synth1.current.volume.value = Math.log( appState.melody ) * 10;
-    synth2.current.volume.value = Math.log( appState.melody ) * 10;
-  }, [appState.melody]);
+    synth1.current.volume.value = Math.log10( 0.25 * appState.rectOpacity ) * 10;
+    synth2.current.volume.value = Math.log10( 0.25 * appState.rectOpacity ) * 10;
+  }, [appState.rectOpacity]);
 
   useEffect(() => {
-    droneSynth.current.volume.value = Math.log( appState.drone ) * 10;
-  }, [appState.drone]);
+    droneSynth.current.volume.value = Math.log10( 0.25 * appState.icoOpacity ) * 10;
+  }, [appState.icoOpacity]);
 
   const handleDroneStopStart = ( () => {
     if ( dronePlaying ) {
@@ -171,8 +171,6 @@ const App = () => {
         icoOpacity={appState.icoOpacity}
         rectOpacity={appState.rectOpacity}
         autorotate={appState.autorotate}
-        melody={appState.melody}
-        drone={appState.drone}
         dronePlaying={dronePlaying}
         handleDroneStopStart={handleDroneStopStart}
         handleUpdateControls={handleUpdateControls}

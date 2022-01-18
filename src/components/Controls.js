@@ -2,8 +2,6 @@ const Controls = ({
   icoOpacity,
   rectOpacity,
   autorotate,
-  melody,
-  drone,
   dronePlaying,
   handleUpdateControls,
   handleDroneStopStart,
@@ -20,7 +18,7 @@ const Controls = ({
           value={icoOpacity}
           onChange={handleUpdateControls}
         />
-        <label htmlFor="icoOpacity">Icosahedron</label>
+        <label htmlFor="icoOpacity">Icosahedron / Drone</label>
         <input
           type="range"
           min={0}
@@ -30,7 +28,7 @@ const Controls = ({
           value={rectOpacity}
           onChange={handleUpdateControls}
         />
-        <label htmlFor="rectOpacity">Golden Rectangles</label>
+        <label htmlFor="rectOpacity">Golden Rectangles / Melody</label>
         <input
           type="range"
           min={-1}
@@ -41,26 +39,6 @@ const Controls = ({
           onChange={handleUpdateControls}
         />
         <label htmlFor="autorotate">Autorotate</label>
-        <input
-          type="range"
-          min={0}
-          max={1}
-          step={0.01}
-          name="melody"
-          value={melody}
-          onChange={handleUpdateControls}
-        />
-        <label htmlFor="melody">Melody</label>
-        <input
-          type="range"
-          min={0}
-          max={1}
-          step={0.01}
-          name="drone"
-          value={drone}
-          onChange={handleUpdateControls}
-        />
-        <label htmlFor="drone">Drone</label>
       </div>
       <div className="droneStopStart" onClick={handleDroneStopStart}>
         {dronePlaying ? "stop drone" : "start drone"}

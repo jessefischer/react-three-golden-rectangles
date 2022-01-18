@@ -3,7 +3,7 @@ export const synthOptions = {
   oscillator: {
     type: "sawtooth",
   },
-  volume: Math.log(0.25)*10,
+  volume: Math.log10(0.25)*10,
   envelope: {
     decay: 25.0,
     sustain: 0.5,
@@ -15,7 +15,7 @@ export const droneSynthOptions = {
   oscillator: {
     type: "sawtooth",
   },
-  volume: Math.log(0.125)*10,
+  volume: Math.log10(0.0625)*10,
   envelope: {
     sustain: 1,
     release: 5.0,
